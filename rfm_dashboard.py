@@ -2,6 +2,7 @@ import pandas as pd
 import datetime as dt
 import plotly.express as px
 import streamlit as st
+from streamlit.components.v1 import html
 
 # Load data
 file_path = 'rfm_data.csv'  # Change this to the actual path if necessary
@@ -62,6 +63,18 @@ segment_counts.columns = ['RFM_Segment', 'Count']
 # Streamlit Dashboard
 st.title("RFM Analysis Dashboard")
 
+# Add some introductory text
+st.markdown("""
+Welcome to the **RFM Analysis Dashboard**. Here you can analyze customer segments based on **Recency, Frequency,** and **Monetary** values.
+""")
+
+# Add an icon
+html("""
+<div style='text-align:center;'>
+    <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
+</div>
+""")
+
 # Dropdown for analysis type
 analysis_type = st.selectbox("Analyze customer segments based on RFM scores:", [
     "Comparison of RFM Segments",
@@ -72,12 +85,17 @@ analysis_type = st.selectbox("Analyze customer segments based on RFM scores:", [
 
 # Plot based on selection
 if analysis_type == "Comparison of RFM Segments":
+    st.markdown("### Comparison of RFM Segments")
+    st.markdown("See how many customers fall into each RFM segment.")
     fig = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment')
     st.plotly_chart(fig)
 elif analysis_type == "RFM Value Segment Distribution":
+    st.markdown("### RFM Value Segment Distribution")
+    st.markdown("Distribution of RFM scores among customers.")
     fig = px.histogram(rfm, x='RFM_Score', title='RFM Score Distribution')
     st.plotly_chart(fig)
 elif analysis_type == "Distribution of RFM Values within Customer Segment":
+    st.markdown("### Distribution of RFM Values within Customer Segment")
     segment = st.selectbox("Select RFM Segment:", rfm['RFM_Segment'].unique())
     segment_data = rfm[rfm['RFM_Segment'] == segment]
     fig = px.histogram(segment_data, x='Recency', title=f'Recency Distribution in {segment} Segment')
@@ -87,6 +105,7 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     fig = px.histogram(segment_data, x='Monetary', title=f'Monetary Distribution in {segment} Segment')
     st.plotly_chart(fig)
 elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment":
+    st.markdown("### Correlation Matrix of RFM Values within Champions Segment")
     champions_data = rfm[rfm['RFM_Segment'] == 'Champions']
     correlation_matrix = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
     fig = px.imshow(correlation_matrix, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment')
