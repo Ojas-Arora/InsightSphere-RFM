@@ -4,7 +4,7 @@ Introduction
 
 The RFM Analysis Dashboard is a powerful tool designed to help businesses understand their customer base by segmenting customers based on three key metrics: Recency, Frequency, and Monetary value (RFM). By leveraging this analysis, businesses can gain insights into customer behavior, identify high-value customers, and tailor marketing strategies to enhance customer engagement and loyalty.
 
-#What is RFM Analysis?
+What is RFM Analysis?
 
 RFM analysis is a marketing technique used to quantitatively rank and segment customers based on their transaction history. It is based on the following metrics:
 
@@ -46,9 +46,11 @@ Customer Loyalty: Identifying loyal customers helps in creating reward programs 
 Resource Allocation: Businesses can allocate resources more efficiently by focusing on high-value customers and improving strategies for lower-value segments.
 
 Conclusion
+
 The RFM Analysis Dashboard is a valuable tool for any business looking to leverage customer data for better decision-making. By using RFM analysis, businesses can gain deeper insights into customer behavior, enhance marketing strategies, and ultimately drive growth and profitability.
 
-#How to Use the Dashboard
+How to Use the Dashboard
+
 1. Install Dependencies: Ensure you have Python and the required libraries installed. You can install the necessary packages using:
 
 pip install pandas plotly streamlit
