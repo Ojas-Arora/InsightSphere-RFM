@@ -67,10 +67,10 @@ st.set_page_config(page_title="RFM Analysis Dashboard", page_icon=":bar_chart:",
 st.markdown("""
     <style>
     .stApp {
-        background-color: darkturquoise;
+        background-color: #f0f2f6;
     }
     .header {
-        text-align: center;
+        text-align: justify;
     }
     .header h1 {
         font-size: 3em;
@@ -78,13 +78,14 @@ st.markdown("""
     }
     .header img {
         margin-top: -20px;
-        width: 60px;
+        width: 160px;
+        height: 100px
     }
     .segment {
         margin: 20px 0;
     }
     .segment h3 {
-        color: #4b0082;
+        color: black;
     }
     </style>
 """, unsafe_allow_html=True)
