@@ -87,6 +87,9 @@ st.markdown("""
     .segment h3 {
         color: black;
     }
+   .stMetric-value {
+        color: black !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
