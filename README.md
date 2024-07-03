@@ -1,6 +1,6 @@
 # RFM-Analysis-Dashboard
 ![image](https://github.com/Ojas-Arora/RFM-Analysis-Dashboard/assets/127867874/15806196-10ad-410a-9d17-48f389c4a420)
-#Introduction
+Introduction
 The RFM Analysis Dashboard is a powerful tool designed to help businesses understand their customer base by segmenting customers based on three key metrics: Recency, Frequency, and Monetary value (RFM). By leveraging this analysis, businesses can gain insights into customer behavior, identify high-value customers, and tailor marketing strategies to enhance customer engagement and loyalty.
 
 #What is RFM Analysis?
