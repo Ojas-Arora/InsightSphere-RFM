@@ -1,16 +1,19 @@
 # RFM-Analysis-Dashboard
 ![image](https://github.com/Ojas-Arora/RFM-Analysis-Dashboard/assets/127867874/15806196-10ad-410a-9d17-48f389c4a420)
 Introduction
+
 The RFM Analysis Dashboard is a powerful tool designed to help businesses understand their customer base by segmenting customers based on three key metrics: Recency, Frequency, and Monetary value (RFM). By leveraging this analysis, businesses can gain insights into customer behavior, identify high-value customers, and tailor marketing strategies to enhance customer engagement and loyalty.
 
 #What is RFM Analysis?
+
 RFM analysis is a marketing technique used to quantitatively rank and segment customers based on their transaction history. It is based on the following metrics:
 
 1. Recency (R): How recently a customer made a purchase. Customers who recently made a purchase are more likely to buy again compared to those who made a purchase a long time ago.
 2. Frequency (F): How often a customer makes a purchase. Customers who purchase more frequently are generally more loyal and potentially more valuable.
 3. Monetary Value (M): How much money a customer has spent. Customers who spend more are considered more valuable to the business.
    
-#How the Dashboard Works
+How the Dashboard Works
+
 1. Data Loading and Preprocessing:
 
 The dashboard starts by loading customer transaction data, including customer IDs, purchase dates, order IDs, and transaction amounts.
