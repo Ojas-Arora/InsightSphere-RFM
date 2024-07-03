@@ -156,7 +156,12 @@ analysis_type = st.sidebar.selectbox("Analyze customer segments based on RFM sco
 
 # Plot based on selection
 if analysis_type == "Comparison of RFM Segments":
-    st.markdown("<div class='segment'><h3>Comparison of RFM Segments</h3><p>See how many customers fall into each RFM segment.</p></div>", unsafe_allow_html=True)
+    st.markdown("""
+        <div class='segment'>
+            <h3>Comparison of RFM Segments</h3>
+            <p style="color: purple;">See how many customers fall into each RFM segment.</p>
+        </div>
+    """, unsafe_allow_html=True)
     fig = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment', color='RFM_Segment')
     st.plotly_chart(fig)
 elif analysis_type == "RFM Value Segment Distribution":
