@@ -157,9 +157,9 @@ analysis_type = st.sidebar.selectbox("Analyze customer segments based on RFM sco
 # Plot based on selection
 if analysis_type == "Comparison of RFM Segments":
     st.markdown("""
-        <div class='segment'>
+        <div class='segment' style="text-align: center;">
             <h3>Comparison of RFM Segments</h3>
-            <p style="color: purple text-align:center;">See how many customers fall into each RFM segment.</p>
+            <p style="color: purple;">See how many customers fall into each RFM segment.</p>
         </div>
     """, unsafe_allow_html=True)
     fig = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment', color='RFM_Segment')
