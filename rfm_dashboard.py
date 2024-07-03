@@ -67,7 +67,7 @@ st.set_page_config(page_title="RFM Analysis Dashboard", page_icon=":bar_chart:",
 st.markdown("""
     <style>
     .stApp {
-        background-color: #f0f2f6;
+        background-color: darkturquoise;
     }
     .header {
         text-align: center;
