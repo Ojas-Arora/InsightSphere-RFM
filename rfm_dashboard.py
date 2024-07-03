@@ -70,7 +70,7 @@ st.markdown("""
         background-color: #f0f2f6;
     }
     .header {
-        text-align: justify;
+        text-align: center;
     }
     .header h1 {
         font-size: 3em;
@@ -78,17 +78,16 @@ st.markdown("""
     }
     .header img {
         margin-top: -20px;
-        width: 160px;
-        height: 100px
+        width: 60px;
     }
     .segment {
         margin: 20px 0;
     }
     .segment h3 {
-        color: black;
+        color: #4b0082;
     }
-   .stMetric-value {
-        color: black !important;
+    .stMetric-value {
+        color: black;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -103,10 +102,11 @@ html("""
 """)
 
 # Metrics
-st.metric(label="Total Customers", value=rfm['CustomerID'].nunique())
-st.metric(label="Average Recency", value=int(rfm['Recency'].mean()))
-st.metric(label="Average Frequency", value=int(rfm['Frequency'].mean()))
-st.metric(label="Average Monetary Value", value=int(rfm['Monetary'].mean()))
+col1, col2, col3, col4 = st.columns(4)
+col1.metric(label="Total Customers", value=rfm['CustomerID'].nunique())
+col2.metric(label="Average Recency", value=int(rfm['Recency'].mean()))
+col3.metric(label="Average Frequency", value=int(rfm['Frequency'].mean()))
+col4.metric(label="Average Monetary Value", value=int(rfm['Monetary'].mean()))
 
 # Dropdown for analysis type
 st.sidebar.title("Analysis Options")
