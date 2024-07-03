@@ -185,3 +185,11 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
     correlation_matrix = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
     fig = px.imshow(correlation_matrix, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment', color_continuous_scale='Viridis')
     st.plotly_chart(fig)
+
+# Concluding Lines
+st.markdown("""
+<div class='segment' style="text-align: center;">
+    <h3>Thank you for using the RFM Analysis Dashboard</h3>
+    <p style="color: purple;">We hope this analysis helps you understand your customer segments better and make informed business decisions.</p>
+</div>
+""", unsafe_allow_html=True)
