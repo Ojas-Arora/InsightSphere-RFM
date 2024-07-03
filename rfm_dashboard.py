@@ -2,7 +2,6 @@ import pandas as pd
 import datetime as dt
 import plotly.express as px
 import streamlit as st
-from streamlit.components.v1 import html
 
 # Load data
 file_path = 'rfm_data.csv'  # Change this to the actual path if necessary
@@ -86,27 +85,65 @@ st.markdown("""
     .segment h3 {
         color: #4b0082;
     }
-    .stMetric-value {
+    .metric-container {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+    .metric {
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 200px;
+    }
+    .metric h3 {
+        color: #4b0082;
+    }
+    .metric p {
+        font-size: 2em;
         color: black;
+        margin: 0;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # Header
-html("""
+st.markdown("""
 <div class='header'>
     <h1>RFM Analysis Dashboard</h1>
     <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
     <p>Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
 </div>
-""")
+""", unsafe_allow_html=True)
 
 # Metrics
-col1, col2, col3, col4 = st.columns(4)
-col1.metric(label="Total Customers", value=rfm['CustomerID'].nunique())
-col2.metric(label="Average Recency", value=int(rfm['Recency'].mean()))
-col3.metric(label="Average Frequency", value=int(rfm['Frequency'].mean()))
-col4.metric(label="Average Monetary Value", value=int(rfm['Monetary'].mean()))
+total_customers = rfm['CustomerID'].nunique()
+avg_recency = int(rfm['Recency'].mean())
+avg_frequency = int(rfm['Frequency'].mean())
+avg_monetary = int(rfm['Monetary'].mean())
+
+st.markdown(f"""
+<div class='metric-container'>
+    <div class='metric'>
+        <h3>Total Customers</h3>
+        <p>{total_customers}</p>
+    </div>
+    <div class='metric'>
+        <h3>Average Recency</h3>
+        <p>{avg_recency}</p>
+    </div>
+    <div class='metric'>
+        <h3>Average Frequency</h3>
+        <p>{avg_frequency}</p>
+    </div>
+    <div class='metric'>
+        <h3>Average Monetary Value</h3>
+        <p>{avg_monetary}</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # Dropdown for analysis type
 st.sidebar.title("Analysis Options")
