@@ -1,10 +1,10 @@
 # RFM-Analysis-Dashboard
 ![image](https://github.com/Ojas-Arora/RFM-Analysis-Dashboard/assets/127867874/15806196-10ad-410a-9d17-48f389c4a420)
-Introduction
+I. Introduction
 
 The RFM Analysis Dashboard is a powerful tool designed to help businesses understand their customer base by segmenting customers based on three key metrics: Recency, Frequency, and Monetary value (RFM). By leveraging this analysis, businesses can gain insights into customer behavior, identify high-value customers, and tailor marketing strategies to enhance customer engagement and loyalty.
 
-What is RFM Analysis?
+II. What is RFM Analysis?
 
 RFM analysis is a marketing technique used to quantitatively rank and segment customers based on their transaction history. It is based on the following metrics:
 
@@ -12,7 +12,7 @@ RFM analysis is a marketing technique used to quantitatively rank and segment cu
 2. Frequency (F): How often a customer makes a purchase. Customers who purchase more frequently are generally more loyal and potentially more valuable.
 3. Monetary Value (M): How much money a customer has spent. Customers who spend more are considered more valuable to the business.
    
-How the Dashboard Works
+III. How the Dashboard Works
 
 1. Data Loading and Preprocessing:
 
@@ -45,11 +45,11 @@ Targeted Marketing: By understanding which customers are most valuable, business
 Customer Loyalty: Identifying loyal customers helps in creating reward programs that enhance customer loyalty and increase repeat purchases.
 Resource Allocation: Businesses can allocate resources more efficiently by focusing on high-value customers and improving strategies for lower-value segments.
 
-Conclusion
+V. Conclusion
 
 The RFM Analysis Dashboard is a valuable tool for any business looking to leverage customer data for better decision-making. By using RFM analysis, businesses can gain deeper insights into customer behavior, enhance marketing strategies, and ultimately drive growth and profitability.
 
-How to Use the Dashboard
+VI. How to Use the Dashboard
 
 1. Install Dependencies: Ensure you have Python and the required libraries installed. You can install the necessary packages using:
 
