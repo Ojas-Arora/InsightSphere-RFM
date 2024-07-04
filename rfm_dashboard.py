@@ -81,9 +81,14 @@ st.markdown("""
     }
     .segment {
         margin: 20px 0;
+        text-align: center;
+        color: purple;
     }
     .segment h3 {
-        color: #4b0082;
+        color: purple;
+    }
+    .segment p {
+        color: purple;
     }
     .metric-container {
         display: flex;
@@ -97,6 +102,7 @@ st.markdown("""
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         width: 200px;
+        color: purple;
     }
     .metric h3 {
         color: #4b0082;
@@ -114,7 +120,7 @@ st.markdown("""
 <div class='header'>
     <h1>RFM Analysis Dashboard</h1>
     <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
-    <p style="color:purple">Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
+    <p>Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -159,7 +165,7 @@ if analysis_type == "Comparison of RFM Segments":
     st.markdown("""
         <div class='segment' style="text-align: center;">
             <h3>Comparison of RFM Segments</h3>
-            <p style="color: purple;">See how many customers fall into each RFM segment.</p>
+            <p>See how many customers fall into each RFM segment.</p>
         </div>
     """, unsafe_allow_html=True)
     fig = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment', color='RFM_Segment')
@@ -190,6 +196,6 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
 st.markdown("""
 <div class='segment' style="text-align: center;">
     <h3>Thank you for using the RFM Analysis Dashboard</h3>
-    <p style="color: purple;">We hope this analysis helps you understand your customer segments better and make informed business decisions.</p>
+    <p>We hope this analysis helps you understand your customer segments better and make informed business decisions.</p>
 </div>
 """, unsafe_allow_html=True)
