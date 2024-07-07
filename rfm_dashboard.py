@@ -73,7 +73,7 @@ st.markdown("""
 
     .stApp {
         background-color: #f0f2f6;
-        background-image: url('./1.jpg'); /* Specify your image path */
+        background-image: "./1.jpg"; /* Specify your image path */
         background-size: cover;
         animation: fadeIn 2s ease-in;
     }
