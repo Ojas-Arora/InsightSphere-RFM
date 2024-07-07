@@ -2,6 +2,7 @@ import pandas as pd
 import datetime as dt
 import plotly.express as px
 import streamlit as st
+import streamlit.components.v1 as components
 
 # Load data
 file_path = 'rfm_data.csv'  # Change this to the actual path if necessary
@@ -62,39 +63,57 @@ segment_counts.columns = ['RFM_Segment', 'Count']
 # Streamlit Dashboard
 st.set_page_config(page_title="RFM Analysis Dashboard", page_icon=":bar_chart:", layout="wide")
 
-# Add custom CSS
+# Add custom CSS with animations
 st.markdown("""
     <style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
     .stApp {
         background-color: #f0f2f6;
+        animation: fadeIn 2s ease-in;
     }
+
     .header {
         text-align: center;
     }
+
     .header h1 {
         font-size: 3em;
         color: #4b0082;
+        animation: fadeIn 3s ease-in;
     }
+
     .header img {
         margin-top: -20px;
         width: 60px;
+        animation: fadeIn 3s ease-in;
     }
+
     .segment {
         margin: 20px 0;
         text-align: center;
         color: purple;
+        animation: fadeIn 3s ease-in;
     }
+
     .segment h3 {
         color: purple;
     }
+
     .segment p {
         color: purple;
     }
+
     .metric-container {
         display: flex;
         justify-content: space-around;
         margin: 20px 0;
+        animation: fadeIn 2s ease-in;
     }
+
     .metric {
         text-align: center;
         background: #fff;
@@ -103,14 +122,21 @@ st.markdown("""
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         width: 200px;
         color: purple;
+        animation: fadeIn 2s ease-in;
     }
+
     .metric h3 {
         color: #4b0082;
     }
+
     .metric p {
         font-size: 2em;
         color: black;
         margin: 0;
+    }
+
+    .plot-container {
+        animation: fadeIn 3s ease-in;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -163,7 +189,7 @@ analysis_type = st.sidebar.selectbox("Analyze customer segments based on RFM sco
 # Plot based on selection
 if analysis_type == "Comparison of RFM Segments":
     st.markdown("""
-        <div class='segment' style="text-align: center;">
+        <div class='segment'>
             <h3>Comparison of RFM Segments</h3>
             <p>See how many customers fall into each RFM segment.</p>
         </div>
@@ -194,7 +220,7 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
 
 # Concluding Lines
 st.markdown("""
-<div class='segment' style="text-align: center;">
+<div class='segment'>
     <h3>Thank you for using the RFM Analysis Dashboard</h3>
     <p>We hope this analysis helps you understand your customer segments better and make informed business decisions.</p>
 </div>
