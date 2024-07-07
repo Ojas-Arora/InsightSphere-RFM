@@ -152,6 +152,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# Data Preview Button
+if st.button('Data Preview'):
+    st.write(data.head())
+
 # Metrics
 total_customers = rfm['CustomerID'].nunique()
 avg_recency = int(rfm['Recency'].mean())
