@@ -107,7 +107,9 @@ st.markdown("""
     .segment p {
         color: purple;
     }
-
+    .sidebar.selectbox{
+        color:white;       
+    }
     .metric-container {
         display: flex;
         justify-content: space-around;
