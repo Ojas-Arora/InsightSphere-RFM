@@ -140,6 +140,16 @@ st.markdown("""
     .plot-container {
         animation: fadeIn 3s ease-in;
     }
+
+    .stButton>button {
+        color: purple;
+        background: white;
+        padding: 10px 20px;
+        border: 2px solid purple;
+        border-radius: 5px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -152,9 +162,15 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Data Preview Button
+# Data Preview Button with Toggle
+if 'data_preview' not in st.session_state:
+    st.session_state.data_preview = False
+
 if st.button('Data Preview'):
-    st.write(data.head())
+    st.session_state.data_preview = not st.session_state.data_preview
+
+if st.session_state.data_preview:
+    st.write(data)
 
 # Metrics
 total_customers = rfm['CustomerID'].nunique()
@@ -218,7 +234,7 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     fig = px.histogram(segment_data, x='Monetary', title=f'Monetary Distribution in {segment} Segment', nbins=10, color='Monetary')
     st.plotly_chart(fig)
 elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment":
-    st.markdown("<div class='segment'><h3>Correlation Matrix of RFM Values within Champions Segment</h3><p>See the correlation between Recency, Frequency, and Monetary values within the Champions segment.</p></div>", unsafe_allow_html=True)
+    st.markdown("<div class='segment'><h3>Correlation Matrix of RFM Values within Champions Segment</h3></div>", unsafe_allow_html=True)
     champions_data = rfm[rfm['RFM_Segment'] == 'Champions']
     correlation_matrix = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
     fig = px.imshow(correlation_matrix, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment', color_continuous_scale='Viridis')
