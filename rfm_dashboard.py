@@ -139,7 +139,8 @@ st.markdown("""
         animation: fadeIn 3s ease-in;
     }
 
-    .selectbox > div:first-child {
+    /* Dropdown text color change */
+    .streamlit-dropdown > div:first-child {
         color: purple !important;
     }
 
