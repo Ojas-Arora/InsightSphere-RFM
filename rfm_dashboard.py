@@ -142,14 +142,23 @@ st.markdown("""
     }
 
     .stButton>button {
-        color: purple;
-        background: white;
+        color: white;
+        background: purple;
         width: 1000px;
         padding: 10px 20px;
         border: 2px solid purple;
         border-radius: 5px;
         font-size: 1.5em;
         cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .stButton>button:hover {
+        background-color: darkturquoise;
+    }
+
+    .stButton>button:active {
+        background-color: darkturquoise;
     }
     </style>
 """, unsafe_allow_html=True)
