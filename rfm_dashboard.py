@@ -151,6 +151,10 @@ st.markdown("""
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
+    .center-button {
+        display: flex;
+        justify-content: center;
+    }
 
     .stButton>button:hover {
         background-color: darkturquoise;
