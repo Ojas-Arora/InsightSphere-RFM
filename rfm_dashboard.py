@@ -247,9 +247,9 @@ if analysis_type == "Comparison of RFM Segments":
     fig_box = px.box(rfm, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution by RFM Segment')
     st.plotly_chart(fig_box)
 
-    # Additional chart
-    fig_line = px.line(segment_counts, x='RFM_Segment', y='Count', title='Line Plot of Customer Count by RFM Segment')
-    st.plotly_chart(fig_line)
+    # Additional scatter plot
+    fig_scatter_additional = px.scatter(rfm, x='Recency', y='Frequency', color='RFM_Segment', title='Scatter Plot of Recency vs Frequency')
+    st.plotly_chart(fig_scatter_additional)
 
 elif analysis_type == "RFM Value Segment Distribution":
     st.markdown("""
