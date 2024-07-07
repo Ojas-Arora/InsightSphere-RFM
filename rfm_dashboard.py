@@ -66,9 +66,6 @@ st.set_page_config(page_title="RFM Analysis Dashboard", page_icon=":bar_chart:",
 # Add custom CSS with animations
 st.markdown("""
     <style>
-    .main {
-        background-image: url('./1.jpg');
-    }
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -76,6 +73,8 @@ st.markdown("""
 
     .stApp {
         background-color: #f0f2f6;
+        background-image: url('./1.jpg'); /* Specify your image path */
+        background-size: cover;
         animation: fadeIn 2s ease-in;
     }
 
