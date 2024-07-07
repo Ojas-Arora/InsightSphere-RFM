@@ -224,7 +224,7 @@ analysis_type = st.sidebar.selectbox("Analyze customer segments based on RFM sco
     "RFM Value Segment Distribution",
     "Distribution of RFM Values within Customer Segment",
     "Correlation Matrix of RFM Values within Champions Segment"
-])
+], format_func=lambda x: f'<span style="color: white;">{x}</span>')
 
 # Plot based on selection
 if analysis_type == "Comparison of RFM Segments":
