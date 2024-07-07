@@ -275,9 +275,9 @@ elif analysis_type == "RFM Value Segment Distribution":
     fig_pie_rfm = px.pie(segment_counts, values='Count', names='RFM_Segment', title='Percentage Distribution of Customers by RFM Segment')
     st.plotly_chart(fig_pie_rfm)
 
-    # Line chart example
-    fig_line_rfm = px.line(segment_counts, x='RFM_Segment', y='Count', title='Line Plot of Customer Count by RFM Segment')
-    st.plotly_chart(fig_line_rfm)
+    # Additional visualization
+    fig_bar_rfm = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment')
+    st.plotly_chart(fig_bar_rfm)
 
 elif analysis_type == "Distribution of RFM Values within Customer Segment":
     st.markdown("""
@@ -311,10 +311,6 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     fig_box = px.box(segment_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title=f'Monetary Distribution in {segment} Segment')
     st.plotly_chart(fig_box)
 
-    # Line chart example
-    fig_line = px.line(segment_data, x='RFM_Segment', y='Monetary', title=f'Monetary Distribution in {segment} Segment')
-    st.plotly_chart(fig_line)
-
     # Additional visualization
     fig_pie_segment = px.pie(segment_counts, values='Count', names='RFM_Segment', title=f'Percentage Distribution of Customers in {segment} Segment')
     st.plotly_chart(fig_pie_segment)
@@ -345,10 +341,6 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
     # Box plot of Monetary values
     fig_box = px.box(champions_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution in Champions Segment')
     st.plotly_chart(fig_box)
-
-    # Line chart of Monetary values
-    fig_line = px.line(champions_data, x='RFM_Segment', y='Monetary', title='Monetary Distribution in Champions Segment')
-    st.plotly_chart(fig_line)
 
     # Additional visualization
     fig_bar_champions = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment within Champions Segment', color='RFM_Segment')
