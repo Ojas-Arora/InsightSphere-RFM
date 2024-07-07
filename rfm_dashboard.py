@@ -138,6 +138,10 @@ st.markdown("""
     .plot-container {
         animation: fadeIn 3s ease-in;
     }
+
+    .sidebar .st-eb .st-eb-content {
+        color: purple !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -204,7 +208,7 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     st.markdown("<div class='segment'><h3>Distribution of RFM Values within Customer Segment</h3><p>Analyze the distribution of Recency, Frequency, and Monetary values within a specific segment.</p></div>", unsafe_allow_html=True)
     segment = st.selectbox("Select RFM Segment:", rfm['RFM_Segment'].unique())
     segment_data = rfm[rfm['RFM_Segment'] == segment]
-    st.markdown(f"<h4 style='color: purple;'>{segment} Segment</h4>", unsafe_allow_html=True)
+    st.markdown(f"<h4>{segment} Segment</h4>", unsafe_allow_html=True)
     fig = px.histogram(segment_data, x='Recency', title=f'Recency Distribution in {segment} Segment', nbins=10, color='Recency')
     st.plotly_chart(fig)
     fig = px.histogram(segment_data, x='Frequency', title=f'Frequency Distribution in {segment} Segment', nbins=10, color='Frequency')
@@ -215,7 +219,7 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
     st.markdown("<div class='segment'><h3>Correlation Matrix of RFM Values within Champions Segment</h3><p>See the correlation between Recency, Frequency, and Monetary values within the Champions segment.</p></div>", unsafe_allow_html=True)
     champions_data = rfm[rfm['RFM_Segment'] == 'Champions']
     correlation_matrix = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
-    fig = px.imshow(correlation_matrix, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment', color_continuous_scale='Viridis')
+    fig = px.imshow(correlation_matrix, title='Correlation Matrix of RFM Values within Champions Segment')
     st.plotly_chart(fig)
 
 # Concluding Lines
