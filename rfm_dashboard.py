@@ -140,9 +140,8 @@ st.markdown("""
     .plot-container {
         animation: fadeIn 3s ease-in;
     }
-
     .stButton>button {
-        color: white;
+        color: white !important; /* Ensure text color is always white */
         background: purple;
         width: 1000px;
         padding: 10px 20px;
@@ -155,13 +154,14 @@ st.markdown("""
 
     .stButton>button:hover {
         background-color: darkturquoise;
-        color: white;
+        /* Remove or adjust hover effects if needed */
     }
 
     .stButton>button:active {
         background-color: darkturquoise;
-        color: white;
+        /* Remove or adjust active effects if needed */
     }
+    
     </style>
 """, unsafe_allow_html=True)
 
