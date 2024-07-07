@@ -161,11 +161,11 @@ st.markdown("""
     }
 
     .stSelectbox label {
-        color: white !important; /* Change label text color to white */
+        color: purple !important;
     }
 
     .stSelectbox select {
-        color: purple !important; /* Keep select text color purple */
+        color: purple !important;
     }
     
     </style>
@@ -219,12 +219,12 @@ st.markdown(f"""
 
 # Dropdown for analysis type
 st.sidebar.title("Analysis Options")
-analysis_type = st.sidebar.selectbox("<span style='color:white'>Analyze customer segments based on RFM scores:</span>", [
+analysis_type = st.sidebar.selectbox("Analyze customer segments based on RFM scores:", [
     "Comparison of RFM Segments",
     "RFM Value Segment Distribution",
     "Distribution of RFM Values within Customer Segment",
     "Correlation Matrix of RFM Values within Champions Segment"
-], format_func=lambda x: f"<span style='color:white'>{x}</span>", unsafe_allow_html=True)
+])
 
 # Plot based on selection
 if analysis_type == "Comparison of RFM Segments":
