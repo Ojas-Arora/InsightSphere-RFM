@@ -87,7 +87,8 @@ st.markdown("""
         animation: fadeIn 3s ease-in;
     }
     .selectbox{
-        color:purple;        
+        color:purple;
+        background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');        
     }
     .header img {
         margin-top: -20px;
@@ -110,7 +111,7 @@ st.markdown("""
         color: purple;
     }
     .sidebar{
-    background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');       
+        background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');       
     }
     .metric-container {
         display: flex;
