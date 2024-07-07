@@ -204,7 +204,7 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     st.markdown("<div class='segment'><h3>Distribution of RFM Values within Customer Segment</h3><p>Analyze the distribution of Recency, Frequency, and Monetary values within a specific segment.</p></div>", unsafe_allow_html=True)
     segment = st.selectbox("Select RFM Segment:", rfm['RFM_Segment'].unique())
     segment_data = rfm[rfm['RFM_Segment'] == segment]
-    st.markdown(f"<h4>{segment} Segment</h4>", unsafe_allow_html=True)
+    st.markdown(f"<h4 style='color: purple;'>{segment} Segment</h4>", unsafe_allow_html=True)
     fig = px.histogram(segment_data, x='Recency', title=f'Recency Distribution in {segment} Segment', nbins=10, color='Recency')
     st.plotly_chart(fig)
     fig = px.histogram(segment_data, x='Frequency', title=f'Frequency Distribution in {segment} Segment', nbins=10, color='Frequency')
