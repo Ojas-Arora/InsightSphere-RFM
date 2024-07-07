@@ -143,7 +143,7 @@ st.markdown("""
     .stButton>button {
         color: white !important; /* Ensure text color is always white */
         background: purple;
-        width: 600vh;
+        width: 600em;
         padding: 10px 20px;
         border: 2px solid purple;
         border-radius: 5px;
