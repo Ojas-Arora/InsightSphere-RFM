@@ -155,10 +155,12 @@ st.markdown("""
 
     .stButton>button:hover {
         background-color: darkturquoise;
+        color: white;
     }
 
     .stButton>button:active {
         background-color: darkturquoise;
+        color: white;
     }
     </style>
 """, unsafe_allow_html=True)
