@@ -144,6 +144,7 @@ st.markdown("""
     .stButton>button {
         color: purple;
         background: white;
+        width:100px
         padding: 10px 20px;
         border: 2px solid purple;
         border-radius: 5px;
