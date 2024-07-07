@@ -77,6 +77,12 @@ st.markdown("""
         animation: fadeIn 2s ease-in;
     }
 
+    .css-1d391kg {
+        background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');
+        background-size: cover;
+        color: white;
+    }
+
     .header {
         text-align: center;
     }
@@ -87,8 +93,7 @@ st.markdown("""
         animation: fadeIn 3s ease-in;
     }
     .selectbox{
-        color:purple;
-        background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');        
+        color: purple;        
     }
     .header img {
         margin-top: -20px;
@@ -109,9 +114,6 @@ st.markdown("""
 
     .segment p {
         color: purple;
-    }
-    .sidebar{
-        background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');       
     }
     .metric-container {
         display: flex;
@@ -152,7 +154,7 @@ st.markdown("""
 <div class='header'>
     <h1>RFM Analysis Dashboard</h1>
     <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
-    <p style="color:purple">Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
+    <p style="color: purple;">Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -218,12 +220,13 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     fig = px.histogram(segment_data, x='Monetary', title=f'Monetary Distribution in {segment} Segment', nbins=10, color='Monetary')
     st.plotly_chart(fig)
 elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment":
-    st.markdown("<div class='segment'><h3>Correlation Matrix of RFM Values within Champions Segment</h3><p>See the correlation between Recency, Frequency, and Monetary values within the Champions segment.</p></div>", unsafe_allow_html=True)
+    st.markdown("<div class='segment'><h3>Correlation Matrix of RFM Values within Champions Segment</h3><p>See how RFM values correlate within the Champions segment.</p></div>", unsafe_allow_html=True)
     champions_data = rfm[rfm['RFM_Segment'] == 'Champions']
-    correlation_matrix = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
-    fig = px.imshow(correlation_matrix, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment', color_continuous_scale='Viridis')
+    corr = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
+    fig = px.imshow(corr, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment')
     st.plotly_chart(fig)
-
+else:
+    st.write("Select an analysis type from the sidebar.")
 # Concluding Lines
 st.markdown("""
 <div class='segment'>
