@@ -85,7 +85,9 @@ st.markdown("""
         color: #4b0082;
         animation: fadeIn 3s ease-in;
     }
-
+    .selectbox{
+        color:purple;        
+    }
     .header img {
         margin-top: -20px;
         width: 60px;
