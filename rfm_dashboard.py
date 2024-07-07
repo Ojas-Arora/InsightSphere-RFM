@@ -159,6 +159,14 @@ st.markdown("""
     .stButton>button:active {
         background-color: darkturquoise;
     }
+
+    .stSelectbox label {
+        color: purple !important;
+    }
+
+    .stSelectbox select {
+        color: purple !important;
+    }
     
     </style>
 """, unsafe_allow_html=True)
@@ -246,10 +254,6 @@ if analysis_type == "Comparison of RFM Segments":
     # Box plot example
     fig_box = px.box(rfm, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution by RFM Segment')
     st.plotly_chart(fig_box)
-
-    # Additional scatter plot
-    fig_scatter_additional = px.scatter(rfm, x='Recency', y='Frequency', color='RFM_Segment', title='Scatter Plot of Recency vs Frequency')
-    st.plotly_chart(fig_scatter_additional)
 
 elif analysis_type == "RFM Value Segment Distribution":
     st.markdown("""
