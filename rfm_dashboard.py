@@ -2,7 +2,6 @@ import pandas as pd
 import datetime as dt
 import plotly.express as px
 import streamlit as st
-import streamlit.components.v1 as components
 
 # Load data
 file_path = 'rfm_data.csv'  # Change this to the actual path if necessary
@@ -63,7 +62,7 @@ segment_counts.columns = ['RFM_Segment', 'Count']
 # Streamlit Dashboard
 st.set_page_config(page_title="RFM Analysis Dashboard", page_icon=":bar_chart:", layout="wide")
 
-# Add custom CSS with animations
+# Custom CSS with animations
 st.markdown("""
     <style>
     @keyframes fadeIn {
@@ -85,9 +84,7 @@ st.markdown("""
         color: #4b0082;
         animation: fadeIn 3s ease-in;
     }
-    .selectbox{
-        color:purple;        
-    }
+
     .header img {
         margin-top: -20px;
         width: 60px;
@@ -148,7 +145,7 @@ st.markdown("""
 <div class='header'>
     <h1>RFM Analysis Dashboard</h1>
     <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
-    <p style="color:purple">Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
+    <p>Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
 </div>
 """, unsafe_allow_html=True)
 
