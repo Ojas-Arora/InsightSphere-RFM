@@ -247,6 +247,10 @@ if analysis_type == "Comparison of RFM Segments":
     fig_box = px.box(rfm, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution by RFM Segment')
     st.plotly_chart(fig_box)
 
+    # Additional chart
+    fig_line = px.line(segment_counts, x='RFM_Segment', y='Count', title='Line Plot of Customer Count by RFM Segment')
+    st.plotly_chart(fig_line)
+
 elif analysis_type == "RFM Value Segment Distribution":
     st.markdown("<div class='segment'><h3>RFM Value Segment Distribution</h3><p>Distribution of RFM scores among customers.</p></div>", unsafe_allow_html=True)
     
@@ -291,6 +295,14 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     # Add more histograms or visualizations for deeper analysis
     fig_scatter = px.scatter(segment_data, x='Frequency', y='Monetary', title=f'Scatter plot of Frequency vs Monetary in {segment} Segment', color='Recency')
     st.plotly_chart(fig_scatter)
+
+    # Add another visualization
+    fig_box = px.box(segment_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title=f'Monetary Distribution in {segment} Segment')
+    st.plotly_chart(fig_box)
+
+    # Add third visualization
+    fig_line = px.line(segment_data, x='RFM_Segment', y='Monetary', title=f'Monetary Distribution in {segment} Segment')
+    st.plotly_chart(fig_line)
 
 elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment":
     st.markdown("<div class='segment'><h3>Correlation Matrix of RFM Values within Champions Segment</h3></div>", unsafe_allow_html=True)
