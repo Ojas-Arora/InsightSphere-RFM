@@ -257,96 +257,108 @@ if analysis_type == "Comparison of RFM Segments":
     st.plotly_chart(fig_scatter)
 
     # Box plot example
-    fig_box = px.box(rfm, x='RFM_Segment', y='Frequency', title='Box Plot of Frequency by RFM Segment', color='RFM_Segment')
+    fig_box = px.box(rfm, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution by RFM Segment')
     st.plotly_chart(fig_box)
-
-    # Line chart example
-    fig_line = px.line(rfm, x='RFM_Score', y='Monetary', title='Line Chart of RFM Score vs Monetary', color='RFM_Score')
-    st.plotly_chart(fig_line)
 
 elif analysis_type == "RFM Value Segment Distribution":
     st.markdown("""
         <div class='segment'>
             <h3>RFM Value Segment Distribution</h3>
-            <p>Analyze the distribution of Recency, Frequency, and Monetary values across different segments.</p>
+            <p>Distribution of RFM scores among customers.</p>
         </div>
     """, unsafe_allow_html=True)
     
-    # Plot Recency distribution
-    fig_recency = px.histogram(rfm, x='Recency', color='RFM_Segment', title='Distribution of Recency by RFM Segment')
-    st.plotly_chart(fig_recency)
+    # Histogram of RFM Scores
+    fig_hist_rfm = px.histogram(rfm, x='RFM_Score', title='RFM Score Distribution', nbins=10, color='RFM_Score')
+    st.plotly_chart(fig_hist_rfm)
 
-    # Plot Frequency distribution
-    fig_frequency = px.histogram(rfm, x='Frequency', color='RFM_Segment', title='Distribution of Frequency by RFM Segment')
-    st.plotly_chart(fig_frequency)
-
-    # Plot Monetary distribution
-    fig_monetary = px.histogram(rfm, x='Monetary', color='RFM_Segment', title='Distribution of Monetary Value by RFM Segment')
-    st.plotly_chart(fig_monetary)
+    # Box plot of Monetary values
+    fig_box_rfm = px.box(rfm, x='RFM_Score', y='Monetary', color='RFM_Score', title='Monetary Distribution by RFM Score')
+    st.plotly_chart(fig_box_rfm)
 
     # Scatter plot example
-    fig_scatter = px.scatter(rfm, x='Recency', y='Monetary', color='RFM_Segment', title='Scatter Plot of Recency vs Monetary')
-    st.plotly_chart(fig_scatter)
+    fig_scatter_rfm = px.scatter(rfm, x='Frequency', y='Monetary', color='RFM_Score', title='Scatter Plot of Frequency vs Monetary')
+    st.plotly_chart(fig_scatter_rfm)
 
-    # Box plot example
-    fig_box = px.box(rfm, x='RFM_Segment', y='Frequency', title='Box Plot of Frequency by RFM Segment', color='RFM_Segment')
-    st.plotly_chart(fig_box)
+    # Pie chart example
+    fig_pie_rfm = px.pie(segment_counts, values='Count', names='RFM_Segment', title='Percentage Distribution of Customers by RFM Segment')
+    st.plotly_chart(fig_pie_rfm)
+
+    # Additional visualization
+    fig_bar_rfm = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment')
+    st.plotly_chart(fig_bar_rfm)
 
 elif analysis_type == "Distribution of RFM Values within Customer Segment":
     st.markdown("""
         <div class='segment'>
             <h3>Distribution of RFM Values within Customer Segment</h3>
-            <p>Analyze how RFM values are distributed within a selected customer segment.</p>
+            <p>Analyze the distribution of Recency, Frequency, and Monetary values within a specific segment.</p>
         </div>
     """, unsafe_allow_html=True)
     
-    # Select segment for detailed analysis
-    segment = st.selectbox('Select Customer Segment', rfm['RFM_Segment'].unique())
+    segment = st.selectbox("Select RFM Segment:", rfm['RFM_Segment'].unique())
     segment_data = rfm[rfm['RFM_Segment'] == segment]
-
-    # Plot distribution of Recency, Frequency, and Monetary values within selected segment
-    fig_recency_seg = px.histogram(segment_data, x='Recency', title=f'Distribution of Recency in {segment} Segment')
-    st.plotly_chart(fig_recency_seg)
-
-    fig_frequency_seg = px.histogram(segment_data, x='Frequency', title=f'Distribution of Frequency in {segment} Segment')
-    st.plotly_chart(fig_frequency_seg)
-
-    fig_monetary_seg = px.histogram(segment_data, x='Monetary', title=f'Distribution of Monetary Value in {segment} Segment')
-    st.plotly_chart(fig_monetary_seg)
+    st.markdown(f"<h4 style='color: purple;'>{segment} Segment</h4>", unsafe_allow_html=True)
+   
+    # Example with Recency distribution
+    fig_recency = px.histogram(segment_data, x='Recency', title=f'Recency Distribution in {segment} Segment', nbins=10, color='Recency')
+    st.plotly_chart(fig_recency)
+   
+    # Example with Frequency distribution
+    fig_frequency = px.histogram(segment_data, x='Frequency', title=f'Frequency Distribution in {segment} Segment', nbins=10, color='Frequency')
+    st.plotly_chart(fig_frequency)
+   
+    # Example with Monetary distribution
+    fig_monetary = px.histogram(segment_data, x='Monetary', title=f'Monetary Distribution in {segment} Segment', nbins=10, color='Monetary')
+    st.plotly_chart(fig_monetary)
 
     # Scatter plot example
-    fig_scatter = px.scatter(segment_data, x='Recency', y='Monetary', color='RFM_Segment', title=f'Scatter Plot of Recency vs Monetary in {segment} Segment')
+    fig_scatter = px.scatter(segment_data, x='Frequency', y='Monetary', title=f'Scatter plot of Frequency vs Monetary in {segment} Segment', color='Recency')
     st.plotly_chart(fig_scatter)
 
     # Box plot example
-    fig_box = px.box(segment_data, x='RFM_Segment', y='Frequency', title=f'Box Plot of Frequency in {segment} Segment', color='RFM_Segment')
+    fig_box = px.box(segment_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title=f'Monetary Distribution in {segment} Segment')
     st.plotly_chart(fig_box)
+
+    # Additional visualization
+    fig_pie_segment = px.pie(segment_counts, values='Count', names='RFM_Segment', title=f'Percentage Distribution of Customers in {segment} Segment')
+    st.plotly_chart(fig_pie_segment)
 
 elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment":
     st.markdown("""
         <div class='segment'>
             <h3>Correlation Matrix of RFM Values within Champions Segment</h3>
-            <p>Understand the relationships between Recency, Frequency, and Monetary values within the Champions segment.</p>
+            <p>Explore correlations between Recency, Frequency, and Monetary values within the Champions segment.</p>
         </div>
     """, unsafe_allow_html=True)
     
-    # Filter champions segment
     champions_data = rfm[rfm['RFM_Segment'] == 'Champions']
-
-    # Calculate correlation matrix
     correlation_matrix = champions_data[['Recency', 'Frequency', 'Monetary']].corr()
 
-    # Display correlation matrix using Streamlit
-    st.write("Correlation Matrix:", correlation_matrix)
+    # Correlation matrix heatmap
+    fig_heatmap = px.imshow(correlation_matrix, labels=dict(color="Correlation"), x=['Recency', 'Frequency', 'Monetary'], y=['Recency', 'Frequency', 'Monetary'], title='Correlation Heatmap within Champions Segment')
+    st.plotly_chart(fig_heatmap)
 
-    # Heatmap of correlation matrix
-    fig_corr = px.imshow(correlation_matrix, text_auto=True, title='Correlation Matrix of RFM Values within Champions Segment')
-    st.plotly_chart(fig_corr)
+    # Scatter plot of Recency vs Frequency
+    fig_scatter_rf = px.scatter(champions_data, x='Recency', y='Frequency', title='Scatter Plot of Recency vs Frequency in Champions Segment', color='Monetary')
+    st.plotly_chart(fig_scatter_rf)
 
-    # Scatter plot example
-    fig_scatter = px.scatter(champions_data, x='Recency', y='Monetary', color='RFM_Segment', title='Scatter Plot of Recency vs Monetary in Champions Segment')
-    st.plotly_chart(fig_scatter)
+    # Scatter plot of Monetary vs Frequency
+    fig_scatter_fm = px.scatter(champions_data, x='Monetary', y='Frequency', title='Scatter Plot of Monetary vs Frequency in Champions Segment', color='Recency')
+    st.plotly_chart(fig_scatter_fm)
 
-    # Box plot example
-    fig_box = px.box(champions_data, x='RFM_Segment', y='Frequency', title='Box Plot of Frequency in Champions Segment', color='RFM_Segment')
+    # Box plot of Monetary values
+    fig_box = px.box(champions_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution in Champions Segment')
     st.plotly_chart(fig_box)
+
+    # Additional visualization
+    fig_bar_champions = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment within Champions Segment', color='RFM_Segment')
+    st.plotly_chart(fig_bar_champions)
+
+# Concluding Lines
+st.markdown("""
+<div class='segment'>
+    <h3>Thank you for using the RFM Analysis Dashboard</h3>
+    <p>We hope this analysis helps you understand your customer segments better and make informed business decisions.</p>
+</div>
+""", unsafe_allow_html=True)
