@@ -85,7 +85,9 @@ st.markdown("""
         color: #4b0082;
         animation: fadeIn 3s ease-in;
     }
-
+    .selectbox{
+        color:purple;        
+    }
     .header img {
         margin-top: -20px;
         width: 60px;
@@ -138,11 +140,6 @@ st.markdown("""
     .plot-container {
         animation: fadeIn 3s ease-in;
     }
-
-    .selectbox > div:first-child {
-        color: purple !important;
-    }
-
     </style>
 """, unsafe_allow_html=True)
 
@@ -151,7 +148,7 @@ st.markdown("""
 <div class='header'>
     <h1>RFM Analysis Dashboard</h1>
     <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
-    <p>Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
+    <p style="color:purple">Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
 </div>
 """, unsafe_allow_html=True)
 
