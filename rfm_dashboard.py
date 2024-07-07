@@ -109,7 +109,9 @@ st.markdown("""
     .segment p {
         color: purple;
     }
-
+    .sidebar{
+    background-image: url('https://removal.ai/wp-content/uploads/2021/09/black-background-09-wallpaperaccess.png');       
+    }
     .metric-container {
         display: flex;
         justify-content: space-around;
