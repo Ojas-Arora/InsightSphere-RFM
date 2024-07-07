@@ -150,6 +150,7 @@ st.markdown("""
         font-size: 1.5em;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        margin-left:200px
     }
     .center-button {
         display: flex;
