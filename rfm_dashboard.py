@@ -72,8 +72,7 @@ st.markdown("""
     }
 
     .stApp {
-        background-color: #f0f2f6;
-        background-image: "./1.jpg"; /* Specify your image path */
+        background-image: url('https://wallpapers.com/images/high/white-color-background-ghw6e685ri75chj4.webp');
         background-size: cover;
         animation: fadeIn 2s ease-in;
     }
