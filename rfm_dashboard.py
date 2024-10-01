@@ -61,7 +61,7 @@ segment_counts = rfm['RFM_Segment'].value_counts().reset_index()
 segment_counts.columns = ['RFM_Segment', 'Count']
 
 # Streamlit Dashboard
-st.set_page_config(page_title="🌐InsightSphere RFM", page_icon="🌐", layout="wide")
+st.set_page_config(page_title="InsightSphere RFM", page_icon="🌐", layout="wide")
 
 # Add custom CSS with animations
 st.markdown("""
