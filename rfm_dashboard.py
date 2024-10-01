@@ -61,7 +61,7 @@ segment_counts = rfm['RFM_Segment'].value_counts().reset_index()
 segment_counts.columns = ['RFM_Segment', 'Count']
 
 # Streamlit Dashboard
-st.set_page_config(page_title="RFM Analysis Dashboard", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title="🌐InsightSphere RFM", page_icon="🌐", layout="wide")
 
 # Add custom CSS with animations
 st.markdown("""
@@ -178,7 +178,7 @@ st.markdown("""
 # Header
 st.markdown("""
 <div class='header'>
-    <h1>RFM Analysis Dashboard</h1>
+    <h1>💡InsightSphere RFM</h1>
     <img src='https://img.icons8.com/fluency/48/000000/customer-insight.png'/>
     <p style="color:purple">Analyze your customer segments based on Recency, Frequency, and Monetary values</p>
 </div>
