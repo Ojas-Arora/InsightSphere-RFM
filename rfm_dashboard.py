@@ -633,6 +633,36 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
 
     # Scatter plot example
     fig_scatter = px.scatter(segment_data, x='Frequency', y='Monetary', title=f'Scatter plot of Frequency vs Monetary in {segment} Segment', color='Recency')
+    fig_scatter.update_layout(
+    title={
+        'text': f'Scatter Plot of Frequency vs Monetary in {segment} Segment',
+        'font': {'size': 24, 'weight': 'bold', 'family': 'Arial'},  # Increase title font size and make it bold
+        'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
+    },
+    xaxis_title={
+        'text': 'Frequency',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Monetary',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'Recency',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+    # Update the x-axis tick font
+    fig_scatter.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold x-axis numbers
+
+    # Update the y-axis tick font
+    fig_scatter.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold y-axis numbers
+
+    # Update the marker text font
+    fig_scatter.update_traces(marker=dict(size=10), textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for markers
     st.plotly_chart(fig_scatter)
 
     # Box plot example
