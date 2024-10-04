@@ -699,6 +699,22 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
 
     # Additional visualization
     fig_pie_segment = px.pie(segment_counts, values='Count', names='RFM_Segment', title=f'Percentage Distribution of Customers in {segment} Segment')
+    fig_pie_segment.update_layout(
+    title={
+        'text': f'Percentage Distribution of Customers in {segment} Segment',
+        'font': {'size': 24, 'weight': 'bold', 'family': 'Arial'},  # Increase title font size and make it bold
+        'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+    # Update the text font for the pie slices
+    fig_pie_segment.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for slice labels
     st.plotly_chart(fig_pie_segment)
 
 elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment":
