@@ -298,6 +298,31 @@ if analysis_type == "Comparison of RFM Segments":
 
     # Histogram of RFM Scores
     fig_hist = px.histogram(rfm, x='RFM_Score', title='RFM Score Distribution', nbins=10, color='RFM_Score')
+    fig_hist.update_layout(
+    title={
+        'text': 'RFM Score Distribution',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    xaxis_title={
+        'text': 'RFM Score',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Count',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Score',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+# Update tick font sizes for axes
+    fig_hist.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for x-axis ticks
+    fig_hist.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for y-axis ticks
+
+    # Make the bar text bold (if necessary)
+    fig_hist.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))
     st.plotly_chart(fig_hist)
 
     # Scatter plot example
