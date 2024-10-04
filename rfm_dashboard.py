@@ -665,8 +665,15 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     fig_scatter.update_traces(marker=dict(size=10), textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for markers
     st.plotly_chart(fig_scatter)
 
-    # Box plot example
-    fig_box = px.box(segment_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title=f'Monetary Distribution in {segment} Segment')
+    fig_box = px.box(
+    segment_data,
+    x='RFM_Segment',
+    y='Monetary',
+    color='RFM_Segment',
+    title=f'Monetary Distribution in {segment} Segment'
+)
+
+    # Update layout and formatting
     fig_box.update_layout(
     title={
         'text': f'Monetary Distribution in {segment} Segment',
@@ -688,15 +695,18 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
         'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
     }
 )
+
+# Update the x-axis tick font
     fig_box.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold x-axis numbers
 
-    # Update the y-axis tick font
+# Update the y-axis tick font
     fig_box.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold y-axis numbers
 
-    # Update the marker text font
+# Update the marker text font
     fig_box.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for markers
-    st.plotly_chart(fig_box)
 
+# Display the box plot in Streamlit
+    st.plotly_chart(fig_box)
     # Additional visualization
     fig_pie_segment = px.pie(segment_counts, values='Count', names='RFM_Segment', title=f'Percentage Distribution of Customers in {segment} Segment')
     st.plotly_chart(fig_pie_segment)
