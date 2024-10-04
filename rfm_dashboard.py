@@ -241,6 +241,25 @@ if analysis_type == "Comparison of RFM Segments":
     
     # Bar chart of segment counts
     fig_bar = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment', color='RFM_Segment')
+    fig_bar.update_layout(
+    title={
+        'text': 'Count of Customers in Each RFM Segment',
+        'font': {'size': 24},  # Increase title font size
+        'x': 0.5,  # Center the title
+    },
+    xaxis_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Count',
+        'font': {'size': 18, 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
     st.plotly_chart(fig_bar)
 
     # Pie chart of percentage distribution
