@@ -277,6 +277,20 @@ if analysis_type == "Comparison of RFM Segments":
 
     # Pie chart of percentage distribution
     fig_pie = px.pie(segment_counts, values='Count', names='RFM_Segment', title='Percentage Distribution of Customers by RFM Segment')
+    fig_pie.update_layout(
+    title={
+        'text': 'Percentage Distribution of Customers by RFM Segment',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold'}  # Bold and larger size for legend title
+    }
+)
+    fig_pie.update_traces(
+    textfont=dict(size=16, family='Arial', color='black', weight='bold'),  # Bold and larger size for pie slice text
+    marker=dict(line=dict(color='#000000', width=2))  # Optional: Customize the border of pie slices
+)
     st.plotly_chart(fig_pie)
 
     # Histogram of RFM Scores
