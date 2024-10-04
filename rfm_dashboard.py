@@ -257,10 +257,14 @@ if analysis_type == "Comparison of RFM Segments":
         'text': 'Count',
         'font': {'size': 18, 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
     },
-    legend_title={
+     legend_title={
         'text': 'RFM Segment',
         'font': {'size': 18, 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
-    }
+    },
+    legend=dict(
+        title_font=dict(size=18, family='Arial', color='black'),  # Legend title font size
+        font=dict(size=16, family='Arial', color='black', weight='bold')  # Make legend text bold and increase size
+    )
 )
     fig_bar.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))
 
