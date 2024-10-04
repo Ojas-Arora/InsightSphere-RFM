@@ -323,6 +323,7 @@ if analysis_type == "Comparison of RFM Segments":
 
     # Make the bar text bold (if necessary)
     fig_hist.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))
+    fig_hist.update_traces(textfont=dict(size=20, family='Arial', color='black', weight='bold'))  # Adjust size for bar text
     st.plotly_chart(fig_hist)
 
     # Scatter plot example
