@@ -358,6 +358,31 @@ if analysis_type == "Comparison of RFM Segments":
 
     # Box plot example
     fig_box = px.box(rfm, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution by RFM Segment')
+    fig_box.update_layout(
+    title={
+        'text': 'Monetary Distribution by RFM Segment',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    xaxis_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Monetary',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+    # Update tick font sizes for axes
+    fig_box.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for x-axis ticks
+    fig_box.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for y-axis ticks
+
+    # Update marker text font sizes (if any) to be larger and bold
+    fig_box.update_traces(textfont=dict(size=20, family='Arial', color='black', weight='bold'))  # Adjust size for box text if necessary
     st.plotly_chart(fig_box)
 
 elif analysis_type == "RFM Value Segment Distribution":
