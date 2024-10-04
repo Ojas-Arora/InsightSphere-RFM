@@ -730,6 +730,26 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
 
     # Correlation matrix heatmap
     fig_heatmap = px.imshow(correlation_matrix, labels=dict(color="Correlation"), x=['Recency', 'Frequency', 'Monetary'], y=['Recency', 'Frequency', 'Monetary'], title='Correlation Heatmap within Champions Segment')
+    fig_heatmap.update_layout(
+    title={
+        'text': 'Correlation Heatmap within Champions Segment',
+        'font': {'size': 24, 'weight': 'bold', 'family': 'Arial'},  # Increase title font size and make it bold
+        'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
+    },
+    xaxis_title={
+        'text': 'Variables',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Variables',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial'}  # Bold and larger size for y-axis label
+    },
+)
+
+    # Update the font for color scale legend
+    fig_heatmap.update_coloraxes(colorbar=dict(title=dict(font=dict(size=18, weight='bold', family='Arial'))))  # Bold for color bar title
     st.plotly_chart(fig_heatmap)
 
     # Scatter plot of Recency vs Frequency
