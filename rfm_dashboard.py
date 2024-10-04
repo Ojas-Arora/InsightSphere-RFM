@@ -328,6 +328,32 @@ if analysis_type == "Comparison of RFM Segments":
 
     # Scatter plot example
     fig_scatter = px.scatter(rfm, x='Recency', y='Monetary', color='RFM_Segment', title='Scatter Plot of Recency vs Monetary')
+    fig_scatter.update_layout(
+    title={
+        'text': 'Scatter Plot of Recency vs Monetary',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    xaxis_title={
+        'text': 'Recency',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Monetary',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+# Update tick font sizes for axes
+    fig_scatter.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for x-axis ticks
+    fig_scatter.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for y-axis ticks
+
+    # Update marker text font sizes (if any) to be larger and bold
+    fig_scatter.update_traces(marker=dict(size=10))  # Adjust marker size if needed
+    fig_scatter.update_traces(textfont=dict(size=20, family='Arial', color='black', weight='bold'))  # Adjust size for point text
     st.plotly_chart(fig_scatter)
 
     # Box plot example
