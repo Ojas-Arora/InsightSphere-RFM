@@ -240,9 +240,29 @@ if analysis_type == "Comparison of RFM Segments":
     """, unsafe_allow_html=True)
     
     # Bar chart of segment counts
-    fig_bar = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment', color='RFM_Segment')
+    fig_bar = px.bar(segment_counts, x='RFM_Segment', y='Count', 
+                 title='Count of Customers in Each RFM Segment', 
+                 color='RFM_Segment')
+    fig_bar.update_layout(
+    title={
+        'text': 'Count of Customers in Each RFM Segment',
+        'font': {'size': 24},  # Increase title font size
+        'x': 0.5,  # Center the title
+    },
+    xaxis_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'family': 'Arial', 'bold': True}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Count',
+        'font': {'size': 18, 'family': 'Arial', 'bold': True}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'family': 'Arial', 'bold': True}  # Bold and larger size for color legend
+    }
+)
     st.plotly_chart(fig_bar)
-
     # Pie chart of percentage distribution
     fig_pie = px.pie(segment_counts, values='Count', names='RFM_Segment', title='Percentage Distribution of Customers by RFM Segment')
     st.plotly_chart(fig_pie)
