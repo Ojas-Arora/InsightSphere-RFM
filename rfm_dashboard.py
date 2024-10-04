@@ -445,6 +445,28 @@ elif analysis_type == "RFM Value Segment Distribution":
 
     # Scatter plot example
     fig_scatter_rfm = px.scatter(rfm, x='Frequency', y='Monetary', color='RFM_Score', title='Scatter Plot of Frequency vs Monetary')
+    fig_scatter_rfm.update_layout(
+    title={
+        'text': 'Scatter Plot of Frequency vs Monetary',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    xaxis_title={
+        'text': 'Frequency',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Monetary Value',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Score',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+# Update tick font sizes for axes
+    fig_scatter_rfm.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for x-axis ticks
+    fig_scatter_rfm.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for y-axis ticks
     st.plotly_chart(fig_scatter_rfm)
 
     # Pie chart example
