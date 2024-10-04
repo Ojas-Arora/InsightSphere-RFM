@@ -800,6 +800,23 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
 
     # Box plot of Monetary values
     fig_box = px.box(champions_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title='Monetary Distribution in Champions Segment')
+    fig_box.update_layout(
+    title={
+        'text': 'Monetary Distribution in Champions Segment',
+        'font': {'size': 24, 'weight': 'bold', 'family': 'Arial'},  # Increase title font size and make it bold
+        'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
+    },
+)
+
+    # Update font for x and y axis labels
+    fig_box.update_xaxes(title_font=dict(size=18, weight='bold', family='Arial'))  # Bold and larger size for x-axis label
+    fig_box.update_yaxes(title_font=dict(size=18, weight='bold', family='Arial'))  # Bold and larger size for y-axis label
+
+    # Update font for x and y tick labels
+    fig_box.update_xaxes(tickfont=dict(size=16, family='Arial', weight='bold'))  # Increase and bold x-axis tick labels
+    fig_box.update_yaxes(tickfont=dict(size=16, family='Arial', weight='bold'))  # Increase and bold y-axis tick labels
     st.plotly_chart(fig_box)
 
     # Additional visualization
