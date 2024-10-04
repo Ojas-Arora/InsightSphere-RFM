@@ -747,6 +747,10 @@ elif analysis_type == "Correlation Matrix of RFM Values within Champions Segment
         'font': {'size': 18, 'weight': 'bold', 'family': 'Arial'}  # Bold and larger size for y-axis label
     },
 )
+    # Update font for x and y tick labels
+    fig_heatmap.update_xaxes(tickfont=dict(size=16, family='Arial', weight='bold'))  # Increase and bold x-axis tick labels
+    fig_heatmap.update_yaxes(tickfont=dict(size=16, family='Arial', weight='bold'))  # Increase and bold y-axis tick labels
+
 
     # Update the font for color scale legend
     fig_heatmap.update_coloraxes(colorbar=dict(title=dict(font=dict(size=18, weight='bold', family='Arial'))))  # Bold for color bar title
