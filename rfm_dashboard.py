@@ -267,6 +267,9 @@ if analysis_type == "Comparison of RFM Segments":
     )
 )
     fig_bar.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))
+    fig_bar.update_xaxes(
+    tickfont=dict(size=16, family='Arial', color='black', weight='bold'),
+    )
 
      # Make the bar text bold (if necessary)
     fig_bar.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))
