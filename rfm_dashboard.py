@@ -667,7 +667,34 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
 
     # Box plot example
     fig_box = px.box(segment_data, x='RFM_Segment', y='Monetary', color='RFM_Segment', title=f'Monetary Distribution in {segment} Segment')
-    
+    fig_box.update_layout(
+    title={
+        'text': f'Monetary Distribution in {segment} Segment',
+        'font': {'size': 24, 'weight': 'bold', 'family': 'Arial'},  # Increase title font size and make it bold
+        'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
+    },
+    xaxis_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Monetary',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+    fig_box.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold x-axis numbers
+
+    # Update the y-axis tick font
+    fig_box.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold y-axis numbers
+
+    # Update the marker text font
+    fig_box.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for markers
     st.plotly_chart(fig_box)
 
     # Additional visualization
