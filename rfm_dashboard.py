@@ -488,6 +488,33 @@ elif analysis_type == "RFM Value Segment Distribution":
 
     # Additional visualization
     fig_bar_rfm = px.bar(segment_counts, x='RFM_Segment', y='Count', title='Count of Customers in Each RFM Segment')
+    fig_bar_rfm.update_layout(
+    title={
+        'text': 'Count of Customers in Each RFM Segment',
+        'font': {'size': 24, 'weight': 'bold', 'family': 'Arial'},  # Increase title font size and make it bold
+        'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
+    },
+    xaxis_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Count',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+    # Update the y-axis tick font
+    fig_bar_rfm.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold y-axis numbers
+
+    # Update the bar text font
+    fig_bar_rfm.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for bars
     st.plotly_chart(fig_bar_rfm)
 
 elif analysis_type == "Distribution of RFM Values within Customer Segment":
