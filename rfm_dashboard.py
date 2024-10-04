@@ -291,6 +291,9 @@ if analysis_type == "Comparison of RFM Segments":
     textfont=dict(size=16, family='Arial', color='black', weight='bold'),  # Bold and larger size for pie slice text
     marker=dict(line=dict(color='#000000', width=2))  # Optional: Customize the border of pie slices
 )
+
+    # Make sure "Champions" is also updated in the segment names
+    fig_pie.for_each_trace(lambda t: t.update(name=t.name.title()))  # Title case for all names
     st.plotly_chart(fig_pie)
 
     # Histogram of RFM Scores
