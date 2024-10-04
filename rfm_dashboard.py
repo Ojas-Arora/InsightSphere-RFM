@@ -471,6 +471,19 @@ elif analysis_type == "RFM Value Segment Distribution":
 
     # Pie chart example
     fig_pie_rfm = px.pie(segment_counts, values='Count', names='RFM_Segment', title='Percentage Distribution of Customers by RFM Segment')
+    fig_pie_rfm.update_layout(
+    title={
+        'text': 'Percentage Distribution of Customers by RFM Segment',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    legend_title={
+        'text': 'RFM Segment',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+# Update text properties for the pie chart segments
+    fig_pie_rfm.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for pie segments
     st.plotly_chart(fig_pie_rfm)
 
     # Additional visualization
