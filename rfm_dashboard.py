@@ -262,10 +262,10 @@ if analysis_type == "Comparison of RFM Segments":
         'font': {'size': 18, 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
     }
 )
-    fig_bar.update_yaxes(tickfont=dict(size=20, family='Arial', color='black', weight='bold'))
+    fig_bar.update_yaxes(tickfont=dict(size=80, family='Arial', color='black', weight='bold'))
 
      # Make the bar text bold (if necessary)
-    fig_bar.update_traces(textfont=dict(size=20, family='Arial', color='black', weight='bold'))
+    fig_bar.update_traces(textfont=dict(size=80, family='Arial', color='black', weight='bold'))
     st.plotly_chart(fig_bar)
 
     # Pie chart of percentage distribution
