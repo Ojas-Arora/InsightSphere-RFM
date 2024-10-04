@@ -393,6 +393,28 @@ elif analysis_type == "RFM Value Segment Distribution":
     
     # Histogram of RFM Scores
     fig_hist_rfm = px.histogram(rfm, x='RFM_Score', title='RFM Score Distribution', nbins=10, color='RFM_Score')
+    fig_hist_rfm.update_layout(
+    title={
+        'text': 'RFM Score Distribution',
+        'font': {'size': 24, 'weight': 'bold'}  # Increase title font size and make it bold
+    },
+    xaxis_title={
+        'text': 'RFM Score',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for x-axis label
+    },
+    yaxis_title={
+        'text': 'Count',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for y-axis label
+    },
+    legend_title={
+        'text': 'RFM Score',
+        'font': {'size': 18, 'weight': 'bold', 'family': 'Arial', 'color': 'black'}  # Bold and larger size for legend title
+    }
+)
+
+    # Update tick font sizes for axes
+    fig_hist_rfm.update_xaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for x-axis ticks
+    fig_hist_rfm.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold for y-axis ticks
     st.plotly_chart(fig_hist_rfm)
 
     # Box plot of Monetary values
