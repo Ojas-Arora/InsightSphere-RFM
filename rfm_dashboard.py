@@ -695,8 +695,6 @@ elif analysis_type == "Distribution of RFM Values within Customer Segment":
     # Update the y-axis tick font
     fig_box.update_yaxes(tickfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold y-axis numbers
 
-    # Update the marker text font
-    fig_box.update_traces(textfont=dict(size=16, family='Arial', color='black', weight='bold'))  # Bold text for markers
     st.plotly_chart(fig_box)
 
     # Additional visualization
