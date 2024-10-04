@@ -246,6 +246,8 @@ if analysis_type == "Comparison of RFM Segments":
         'text': 'Count of Customers in Each RFM Segment',
         'font': {'size': 24},  # Increase title font size
         'x': 0.5,  # Center the title
+        'xanchor': 'center',  # Align the title at the center
+        'yanchor': 'top'  # Keeps the title anchored at the top
     },
     xaxis_title={
         'text': 'RFM Segment',
