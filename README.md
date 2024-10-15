@@ -1,7 +1,8 @@
 # RFM-Analysis-Dashboard
-![image](https://github.com/Ojas-Arora/RFM-Analysis-Dashboard/assets/127867874/ddecddc1-0c78-40e6-89c8-4886e5637349)
 
-![image](https://github.com/Ojas-Arora/RFM-Analysis-Dashboard/assets/127867874/e6f5b359-03dd-483b-b987-a4a1ca835779)
+![image](https://github.com/user-attachments/assets/ec8767f0-08ed-41d1-baa2-9fcc6bcbac55)
+
+![image](https://github.com/user-attachments/assets/446f4c51-f5e3-4fd0-a508-2357b458cea4)
 
 I. Introduction
 
